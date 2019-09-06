@@ -5,7 +5,8 @@ from typing import Dict
 
 
 class Database:
-    URI = os.environ.get('MONGOLAB_URI')
+    URI = os.environ.get('MONGOLAB_URI', 'mongodb://127.0.0.1:27017/pricing')
+    print(URI)
     DATABASE = pymongo.MongoClient(URI).get_database()
 
     @staticmethod
@@ -21,7 +22,7 @@ class Database:
         return Database.DATABASE[collection].find_one(query)
 
     @staticmethod
-    def remove(collection: str, query: Dict) :
+    def remove(collection: str, query: Dict):
         return Database.DATABASE[collection].remove(query)
 
     @staticmethod

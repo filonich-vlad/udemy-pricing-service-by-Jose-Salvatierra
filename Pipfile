@@ -6,14 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+gunicorn = "*"
 flask = "*"
 beautifulsoup4 = "*"
 requests = "*"
 pymongo = "*"
 passlib = "*"
 python-dotenv = "*"
-uwsgi-pipenv = "*"
-uwsgi = "*"
 
 [requires]
 python_version = "3.7"

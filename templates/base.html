@@ -18,8 +18,12 @@
                         <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
                         <a class="nav-item nav-link" href="{{ url_for('users.login_user') }}">Log in</a>
                         <a class="nav-item nav-link" href="{{ url_for('users.register_user') }}">Sign up</a>
-                        {% if session['email'] is not none %}
-                        <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Log out</a>
+                        {% if session.get('email', '') not in ['', none] %}
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('users.logout') }}">Log out</a>
+                            </li>
+                        </ul>
                         {% endif %}
                     </div>
                 </div>
